@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Connexion - LUCE</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="login-body">
+
+    <div class="login-container">
+        <h1>LUCE</h1>
+
+        <div id="login-form">
+            <input type="text" id="email" placeholder="Email">
+            <input type="password" id="password" placeholder="Mot de passe">
+            <button onclick="login()">Connexion</button>
+
+            <p>
+                Pas encore de compte ?
+                <a href="#" onclick="showRegister()">Créer un compte</a>
+            </p>
+        </div>
+
+        <div id="register-form" style="display:none;">
+            <input type="text" id="reg-email" placeholder="Email">
+            <input type="password" id="reg-password" placeholder="Mot de passe">
+            <button onclick="register()">Créer un compte</button>
+
+            <p>
+                Déjà inscrit ?
+                <a href="#" onclick="showLogin()">Se connecter</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+</body>
+</html>

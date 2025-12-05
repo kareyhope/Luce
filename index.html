@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luce - Tableau de bord</title>
+
+    <!-- Feuille de style -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <h1>LUCE</h1>
+    </header>
+
+    <!-- TOP BAR -->
+    <nav class="topbar">
+        <ul>
+            <li class="active" data-screen="chat">Chat familial</li>
+            <li data-screen="prive">Chats privés</li>
+            <li data-screen="scolarite">Scolarité</li>
+            <li data-screen="budget">Budget</li>
+        </ul>
+    </nav>
+
+    <!-- LAYOUT PRINCIPAL -->
+    <div class="layout">
+
+        <!-- SIDEBAR GAUCHE -->
+        <aside class="sidebar" id="sidebar">
+            <h3>Membres du groupe</h3>
+            <ul>
+                <li>Moi</li>
+                <li>Papa</li>
+                <li>Maman</li>
+                <li>Oncle</li>
+                <li>Tante</li>
+            </ul>
+
+            <li onclick="logout()">Déconnexion</li>
+
+        </aside>
+
+        <!-- CONTENU PRINCIPAL -->
+        <main class="main-content">
+
+            <!-- Écran : Chat familial -->
+            <section id="screen-chat" class="screen visible">
+                <h2>Chat familial</h2>
+
+                <div class="messages">
+                    <div class="msg other">Papa : N’oublie pas ton rendez-vous demain.</div>
+                    <div class="msg me">Moi : Oui, j’ai noté.</div>
+                    <div class="msg other">Maman : Tu as mangé ?</div>
+                    <div class="msg me">Moi : Oui, c'était bon.</div>
+                </div>
+
+                <div class="send-box">
+                    <input type="text" placeholder="Écrire un message...">
+                    <button>Envoyer</button>
+                </div>
+            </section>
+
+            <!-- Écran : Chats privés -->
+            <section id="screen-prive" class="screen">
+                <h2>Chats privés</h2>
+
+                <div class="list-card">
+                    <p>Hébergeur</p>
+                </div>
+                <div class="list-card">
+                    <p>Garant</p>
+                </div>
+                <div class="list-card">
+                    <p>Conseiller bancaire</p>
+                </div>
+                <div class="list-card">
+                    <p>Proviseur</p>
+                </div>
+                <div class="list-card">
+                    <p>Bailleur</p>
+                </div>
+            </section>
+
+            <!-- Écran : Scolarité -->
+            <section id="screen-scolarite" class="screen">
+                <h2>Scolarité</h2>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Matière</th>
+                            <th>Type</th>
+                            <th>Note</th>
+                            <th>Échéance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Maths</td>
+                            <td>Devoir</td>
+                            <td>14/20</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>Informatique</td>
+                            <td>Projet</td>
+                            <td>—</td>
+                            <td>05/03/2025</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Écran : Budget -->
+            <section id="screen-budget" class="screen">
+                <h2>Budget</h2>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Catégorie</th>
+                            <th>Montant</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Loyer</td>
+                            <td>550 €</td>
+                            <td>01/11/2025</td>
+                        </tr>
+                        <tr>
+                            <td>Courses</td>
+                            <td>72 €</td>
+                            <td>10/11/2025</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p style="margin-top: 20px;">Graphique simplifié à ajouter ici.</p>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- JS -->
+    <script src="app.js">
+        // Empêche accès à index.html sans être connecté
+        if (!localStorage.getItem("luce_token")) {
+        window.location.href = "login.html";}
+    </script>
+
+</body>
+</html>
